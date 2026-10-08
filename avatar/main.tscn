@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c8mvgi8hbuljp"]
+
+[ext_resource type="Script" uid="uid://ctgwv8ahv5k2f" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ceg87jy6qifxc" path="res://assets/Shoved Reaction With Spin.fbx" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://ckktqrgm8dibq" path="res://assets/Waving.fbx" id="3_h2yge"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ku84b"]
+
+[sub_resource type="Animation" id="Animation_0xm2m"]
+resource_name = "Hello"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2yge"]
+_data = {
+&"Hello": SubResource("Animation_0xm2m")
+}
+
+[node name="Node3D" type="Node3D" unique_id=1489179902]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0.324, 3, 1.8)
+script = ExtResource("1_0xm2m")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1866820949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1941809923]
+transform = Transform3D(0.8660254, 0.3535534, -0.3535534, 0, 0.7071068, 0.7071068, 0.5, -0.61237246, 0.61237246, -1.1920929e-07, 0.10607195, 0.19326091)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=632653384]
+mesh = SubResource("PlaneMesh_ku84b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1553219359]
+libraries/ = SubResource("AnimationLibrary_h2yge")
+
+[node name="Waving" parent="." unique_id=1854293969 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5672946, 0.39652383, 0.6556351)
+
+[node name="Shoved Reaction With Spin" parent="." unique_id=1791047946 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64510465, -7.097382, 0.8576628)
